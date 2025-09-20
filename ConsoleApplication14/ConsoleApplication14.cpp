@@ -69,4 +69,93 @@ cout << "Відсортовано за мобільними.\n";
     } while (choice != 4);
 
     return 0;
+
+    //2
+//const int n = 6;
+//int arr[n] = { 5, 3, 8, 1, 4, 2 };
+//
+//cout << "початковий масив: ";
+//for (int i = 0; i < n; i++) {
+//    cout << arr[i] << " ";
+//}
+//cout << endl;
+//
+//
+//for (int i = 0; i < n - 1; i++) {
+//    int swapcount = 0;
+//    for (int j = 0; j < n - i - 1; j++) {
+//        if (arr[j] > arr[j + 1]) {
+//            int temp = arr[j];
+//            arr[j] = arr[j + 1];
+//            arr[j + 1] = temp;
+//            swapcount++;
+//        }
+//    }
+//
+//    if (swapcount == 0) {
+//        break;
+//    }
+//}
+//
+//cout << "відсортований масив: ";
+//for (int i = 0; i < n; i++) {
+//    cout << arr[i] << " ";
+//}
+//cout << endl;
+//
+//return 0;
+
+
+//3
+
+int arr[] = { 3, 6, 1, 5, 2, 4 };
+int n = sizeof(arr) / sizeof(arr[0]);
+
+cout << "Початкова стопка: ";
+for (int i = 0; i < n; i++)
+    cout << arr[i] << " ";
+cout << endl;
+
+
+for (int currSize = n; currSize > 1; currSize--) {
+
+    int maxIdx = 0;
+    for (int i = 1; i < currSize; i++) {
+        if (arr[i] > arr[maxIdx])
+            maxIdx = i;
+    }
+
+
+    if (maxIdx != currSize - 1) {
+
+        if (maxIdx != 0) {
+            for (int i = 0, j = maxIdx; i < j; i++, j--) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+            cout << "Переворот верхніх " << maxIdx + 1 << " елементів: ";
+            for (int i = 0; i < n; i++) cout << arr[i] << " ";
+            cout << endl;
+        }
+
+
+        int last = currSize - 1;
+        for (int i = 0, j = last; i < j; i++, j--) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        cout << "Переворот верхніх " << currSize << " елементів: ";
+        for (int i = 0; i < n; i++) cout << arr[i] << " ";
+        cout << endl;
+    }
+}
+
+cout << "Відсортована стопка: ";
+for (int i = 0; i < n; i++)
+    cout << arr[i] << " ";
+cout << endl;
+
+return 0;
 }
